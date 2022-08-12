@@ -1,8 +1,16 @@
-up: 
-	cp -n .env.example .env
-	touch database/database.sqlite
-	composer install
-	npm install
-	php artisan key:generate
-	php artisan migrate --seed
-	heroku local -f Procfile.dev
+clean:
+	./gradlew clean
+
+build:
+	./gradlew clean build
+
+install:
+	./gradlew clean install
+
+run-dist:
+	./build/install/app/bin/app
+
+run:
+	./gradlew run
+
+.PHONY: build
