@@ -1,17 +1,17 @@
 clean:
-	/gradlew clean
+	gradlew.bat clean
 
 build:
-	/gradlew clean build
+	gradlew.bat build
 
 install:
-	/gradlew clean install
+	gradlew.bat clean install
 
 run-dist:
-	/build/install/app/bin/app
+	C:\Users\Home\app\app\build\install\app\bin\app
 
 run:
-	/gradlew run
+	gradlew.bat run
 
 build-run: build run
 
