@@ -56,7 +56,7 @@ public class App {
             } else if ((rand % 2 != 0) & yN.equals("no")) {
                 System.out.println("Correct!");
             } else {
-                System.out.println("Try again later!");
+                System.out.println("Try again later");
                 return false;
             }
         }
