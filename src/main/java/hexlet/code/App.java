@@ -7,6 +7,7 @@ public class App {
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
         System.out.println("3 - Calc");
+        System.out.println("4 - GCD");
         System.out.println("0 - Exit");
         System.out.println("Your choice: ");
         Scanner sc = new Scanner(System.in);
@@ -43,6 +44,24 @@ public class App {
             System.out.println("What is the result of the expression?");
             for (int i = 0; i <= 2; i++) {
                 if (calculator()) {
+                    if (i == 2) {
+                        System.out.println("Congratulations, " + name + "!");
+                    }
+                } else {
+                    System.out.println("Let's try again, " + name + "!");
+                    break;
+                }
+            }
+        }
+        else if (gameNumber == 4) {
+            System.out.println("Welcome to the Brain Games!");
+            System.out.println("May I have your name?");
+            Scanner ss = new Scanner(System.in);
+            String name = ss.nextLine();
+            System.out.println("Hello, " + name + "!");
+            System.out.println("Find the greatest common divisor of given numbers.");
+            for (int i = 0; i <= 2; i++) {
+                if (GCD()) {
                     if (i == 2) {
                         System.out.println("Congratulations, " + name + "!");
                     }
@@ -123,6 +142,27 @@ public class App {
                 System.out.println(answer + " is wrong answer ;(. Correct answer was " + trueAnswer);
                 return false;
             }
+        }
+        return true;
+    }
+    public static boolean GCD() {
+        final int hundred = 100;
+        double a = Math.random() * hundred;
+        double b = Math.random() * hundred;
+        int n1 = (int) a;
+        int n2 = (int) b;
+        System.out.println("Question: " + n1 + " " + n2);
+        System.out.println("Your answer: ");
+        Scanner sf = new Scanner(System.in);
+        int answer = sf.nextInt();
+        int gcd = 1;
+        for (int i = 1; i<=n1 && i<=n2; i++) {
+            if (n1 % i == 0 && n2 % i == 0) {
+                gcd = i;
+            }
+        } if (answer != gcd) {
+            System.out.println(answer +" is wrong answer ;(. Correct answer was " + gcd);
+            return false;
         }
         return true;
     }
