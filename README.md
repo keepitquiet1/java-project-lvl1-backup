@@ -6,3 +6,6 @@ https://disk.yandex.ru/d/FTPsQgHko0FZ8Q
 6 шаг по ссылке 
 https://disk.yandex.ru/d/8umwomxvGD8l1g
 ..
+7 шаг по ссылке 
+https://disk.yandex.ru/d/eLw_9uxWKKeRoQ
+..
