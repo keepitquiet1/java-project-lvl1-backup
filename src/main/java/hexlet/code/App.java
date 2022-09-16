@@ -8,6 +8,7 @@ public class App {
         System.out.println("2 - Even");
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
+        System.out.println("5 - Progression");
         System.out.println("0 - Exit");
         System.out.println("Your choice: ");
         Scanner sc = new Scanner(System.in);
@@ -35,7 +36,7 @@ public class App {
                 }
             }
         }
-        else if (gameNumber == 3) {
+        if (gameNumber == 3) {
             System.out.println("Welcome to the Brain Games!");
             System.out.println("May I have your name?");
             Scanner ss = new Scanner(System.in);
@@ -53,7 +54,7 @@ public class App {
                 }
             }
         }
-        else if (gameNumber == 4) {
+        if (gameNumber == 4) {
             System.out.println("Welcome to the Brain Games!");
             System.out.println("May I have your name?");
             Scanner ss = new Scanner(System.in);
@@ -71,7 +72,26 @@ public class App {
                 }
             }
         }
+        if (gameNumber == 5) {
+            System.out.println("Welcome to the Brain Games!");
+            System.out.println("May I have your name?");
+            Scanner ss = new Scanner(System.in);
+            String name = ss.nextLine();
+            System.out.println("Hello, " + name + "!");
+            System.out.println("What number is missing in the progression?");
+            for (int i = 0; i <= 2; i++) {
+                if (progression()) {
+                    if (i == 2) {
+                        System.out.println("Congratulations, " + name + "!");
+                    }
+                } else {
+                    System.out.println("Let's try again, " + name + "!");
+                    break;
+                }
+            }
+        }
     }
+
     public static boolean playGame(String name) {
         final int hundred = 100;
         double a = Math.random() * hundred;
@@ -166,4 +186,37 @@ public class App {
         }
         return true;
     }
+    public static boolean progression() {
+        int lengthArray = getRandomNumber(5, 10);
+        int secretIndex = getRandomNumber(0, lengthArray - 1);
+        int step = getRandomNumber(1,  9);
+        int firstNumber = getRandomNumber(0, 100);
+        System.out.println("Question: ");
+        int[] arr = new int[lengthArray];
+        for (int i = 0; i<lengthArray; i++) {
+            arr[i] = firstNumber + (step * i);
+            if (i==secretIndex) {
+                System.out.println("..");
+            } else {
+                System.out.println(arr[i]);
+            }
+        }
+            Scanner ss = new Scanner(System.in);
+            int answer = ss.nextInt();
+            if (arr[secretIndex] != answer) {
+                System.out.println(answer + " is wrong answer ;(. Correct answer was " + arr[secretIndex] + ".");
+                return false;
+        }
+            System.out.println("Correct!");
+            return true;
+    }
+    public static int getRandomNumber(int min, int max) {
+        return (int) ((Math.random()*(max - min)) + min);
+    }
 }
+
+//for(int i=1; i <= arr.length-1; i++){
+//
+//        arr[i] = arr[i-1] + d;
+//
+//        }
