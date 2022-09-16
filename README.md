@@ -9,3 +9,6 @@ https://disk.yandex.ru/d/8umwomxvGD8l1g
 7 шаг по ссылке 
 https://disk.yandex.ru/d/eLw_9uxWKKeRoQ
 ..
+8 шаг по ссылке 
+https://disk.yandex.ru/d/Bi-2P5PYMTxcSw
+..
