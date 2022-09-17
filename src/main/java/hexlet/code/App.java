@@ -9,6 +9,7 @@ public class App {
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
         System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.println("Your choice: ");
         Scanner sc = new Scanner(System.in);
@@ -90,6 +91,25 @@ public class App {
                 }
             }
         }
+        if (gameNumber == 6) {
+            System.out.println("Welcome to the Brain Games!");
+            System.out.println("May I have your name?");
+            Scanner ss = new Scanner(System.in);
+            String name = ss.nextLine();
+            System.out.println("Hello, " + name + "!");
+            System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+            for (int i = 0; i <= 2; i++) {
+                if (prime()) {
+                    System.out.println("Correct!");
+                    if (i == 2) {
+                        System.out.println("Congratulations, " + name + "!");
+                    }
+                } else {
+                    System.out.println("Let's try again, " + name + "!");
+                    break;
+                }
+            }
+        }
     }
 
     public static boolean playGame(String name) {
@@ -119,6 +139,7 @@ public class App {
             return false;
         }
     }
+
     public static boolean calculator() {
         final int hundred = 100;
         double a = Math.random() * hundred;
@@ -137,34 +158,35 @@ public class App {
         Scanner sf = new Scanner(System.in);
         int answer = sf.nextInt();
         if (plusMinus[n].equals("+")) {
-            if (f1+f2==(int)answer) {
+            if (f1 + f2 == (int) answer) {
                 System.out.println("Correct!");
             } else {
-                int trueAnswer = f1+f2;
+                int trueAnswer = f1 + f2;
                 System.out.println(answer + " is wrong answer ;(. Correct answer was " + trueAnswer);
                 return false;
             }
         }
         if (plusMinus[n].equals("-")) {
-            if (f1-f2==(int)answer) {
+            if (f1 - f2 == (int) answer) {
                 System.out.println("Correct!");
             } else {
-                int trueAnswer = f1-f2;
+                int trueAnswer = f1 - f2;
                 System.out.println(answer + " is wrong answer ;(. Correct answer was " + trueAnswer);
                 return false;
             }
         }
         if (plusMinus[n].equals("*")) {
-            if (f1*f2==(int)answer) {
+            if (f1 * f2 == (int) answer) {
                 System.out.println("Correct!");
             } else {
-                int trueAnswer = f1*f2;
+                int trueAnswer = f1 * f2;
                 System.out.println(answer + " is wrong answer ;(. Correct answer was " + trueAnswer);
                 return false;
             }
         }
         return true;
     }
+
     public static boolean GCD() {
         final int hundred = 100;
         double a = Math.random() * hundred;
@@ -176,47 +198,70 @@ public class App {
         Scanner sf = new Scanner(System.in);
         int answer = sf.nextInt();
         int gcd = 1;
-        for (int i = 1; i<=n1 && i<=n2; i++) {
+        for (int i = 1; i <= n1 && i <= n2; i++) {
             if (n1 % i == 0 && n2 % i == 0) {
                 gcd = i;
             }
-        } if (answer != gcd) {
-            System.out.println(answer +" is wrong answer ;(. Correct answer was " + gcd);
+        }
+        if (answer != gcd) {
+            System.out.println(answer + " is wrong answer ;(. Correct answer was " + gcd);
             return false;
         }
         return true;
     }
+
     public static boolean progression() {
         int lengthArray = getRandomNumber(5, 10);
         int secretIndex = getRandomNumber(0, lengthArray - 1);
-        int step = getRandomNumber(1,  9);
+        int step = getRandomNumber(1, 9);
         int firstNumber = getRandomNumber(0, 100);
         System.out.println("Question: ");
         int[] arr = new int[lengthArray];
-        for (int i = 0; i<lengthArray; i++) {
+        for (int i = 0; i < lengthArray; i++) {
             arr[i] = firstNumber + (step * i);
-            if (i==secretIndex) {
+            if (i == secretIndex) {
                 System.out.println("..");
             } else {
                 System.out.println(arr[i]);
             }
         }
-            Scanner ss = new Scanner(System.in);
-            int answer = ss.nextInt();
-            if (arr[secretIndex] != answer) {
-                System.out.println(answer + " is wrong answer ;(. Correct answer was " + arr[secretIndex] + ".");
-                return false;
+        Scanner ss = new Scanner(System.in);
+        int answer = ss.nextInt();
+        if (arr[secretIndex] != answer) {
+            System.out.println(answer + " is wrong answer ;(. Correct answer was " + arr[secretIndex] + ".");
+            return false;
         }
-            System.out.println("Correct!");
-            return true;
+        System.out.println("Correct!");
+        return true;
     }
+
     public static int getRandomNumber(int min, int max) {
-        return (int) ((Math.random()*(max - min)) + min);
+        return (int) ((Math.random() * (max - min)) + min);
+    }
+
+    public static boolean prime() {
+        int number = getRandomNumber(1, 1000);
+        System.out.println("Question " + number);
+        Scanner ss = new Scanner(System.in);
+        String answer = ss.nextLine();
+        for (int i = 2; i <= number / 2; i++) {
+            int tmp = number % i;
+            if ((tmp == 0)) {
+                if (answer.equals("no")) {
+                    continue;
+                } else if (answer.equals("yes")) {
+                    System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
+                    return false;
+                } else {
+                    if (answer.equals("yes")) {
+                        continue;
+                    } else if (answer.equals("no")) {
+                        System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.");
+                        return false;
+                    }
+                }
+            }
+
+        } return true;
     }
 }
-
-//for(int i=1; i <= arr.length-1; i++){
-//
-//        arr[i] = arr[i-1] + d;
-//
-//        }
