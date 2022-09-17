@@ -14,13 +14,19 @@ public class App {
         System.out.println("Your choice: ");
         Scanner sc = new Scanner(System.in);
         int gameNumber = sc.nextInt();
+        final int gameNumber2 = 2;
+        final int gameNumber3 = 3;
+        final int gameNumber4 = 4;
+        final int gameNumber5 = 5;
+        final int gameNumber6 = 6;
         if (gameNumber == 0) {
             System.out.println("Bye!");
         }
         if (gameNumber == 1) {
             System.out.println("Welcome to the Brain Games!");
         }
-        if (gameNumber == 2) {
+        if (gameNumber == gameNumber2) {
+
             System.out.println("Welcome to the Brain Games!");
             System.out.println("May I have your name?");
             Scanner ss = new Scanner(System.in);
@@ -37,7 +43,7 @@ public class App {
                 }
             }
         }
-        if (gameNumber == 3) {
+        if (gameNumber == gameNumber3) {
             System.out.println("Welcome to the Brain Games!");
             System.out.println("May I have your name?");
             Scanner ss = new Scanner(System.in);
@@ -55,7 +61,7 @@ public class App {
                 }
             }
         }
-        if (gameNumber == 4) {
+        if (gameNumber == gameNumber4) {
             System.out.println("Welcome to the Brain Games!");
             System.out.println("May I have your name?");
             Scanner ss = new Scanner(System.in);
@@ -63,7 +69,7 @@ public class App {
             System.out.println("Hello, " + name + "!");
             System.out.println("Find the greatest common divisor of given numbers.");
             for (int i = 0; i <= 2; i++) {
-                if (GCD()) {
+                if (gcd()) {
                     if (i == 2) {
                         System.out.println("Congratulations, " + name + "!");
                     }
@@ -73,7 +79,7 @@ public class App {
                 }
             }
         }
-        if (gameNumber == 5) {
+        if (gameNumber == gameNumber5) {
             System.out.println("Welcome to the Brain Games!");
             System.out.println("May I have your name?");
             Scanner ss = new Scanner(System.in);
@@ -91,7 +97,7 @@ public class App {
                 }
             }
         }
-        if (gameNumber == 6) {
+        if (gameNumber == gameNumber6) {
             System.out.println("Welcome to the Brain Games!");
             System.out.println("May I have your name?");
             Scanner ss = new Scanner(System.in);
@@ -142,17 +148,18 @@ public class App {
 
     public static boolean calculator() {
         final int hundred = 100;
+        final int lengthArr = 3;
         double a = Math.random() * hundred;
         double b = Math.random() * hundred;
         String[] plusMinus;
-        plusMinus = new String[3];
+        plusMinus = new String[lengthArr];
         plusMinus[0] = "*";
         plusMinus[1] = "+";
         plusMinus[2] = "-";
         int f1 = (int) a;
         int f2 = (int) b;
         Random z = new Random();
-        int n = z.nextInt(3);
+        int n = z.nextInt(lengthArr);
         System.out.println("Question: " + f1 + plusMinus[n] + f2);
         System.out.println("Your answer: ");
         Scanner sf = new Scanner(System.in);
@@ -187,7 +194,7 @@ public class App {
         return true;
     }
 
-    public static boolean GCD() {
+    public static boolean gcd() {
         final int hundred = 100;
         double a = Math.random() * hundred;
         double b = Math.random() * hundred;
@@ -211,10 +218,14 @@ public class App {
     }
 
     public static boolean progression() {
-        int lengthArray = getRandomNumber(5, 10);
+        final int lowerBound = 5;
+        final int upperBound = 10;
+        int lengthArray = getRandomNumber(lowerBound, upperBound);
         int secretIndex = getRandomNumber(0, lengthArray - 1);
-        int step = getRandomNumber(1, 9);
-        int firstNumber = getRandomNumber(0, 100);
+        final int stepNum = 9;
+        final int hundred = 100;
+        int step = getRandomNumber(1, stepNum);
+        int firstNumber = getRandomNumber(0, hundred);
         System.out.println("Question: ");
         int[] arr = new int[lengthArray];
         for (int i = 0; i < lengthArray; i++) {
@@ -240,7 +251,8 @@ public class App {
     }
 
     public static boolean prime() {
-        int number = getRandomNumber(1, 1000);
+        final int thous = 1000;
+        int number = getRandomNumber(1, thous);
         System.out.println("Question " + number);
         Scanner ss = new Scanner(System.in);
         String answer = ss.nextLine();
