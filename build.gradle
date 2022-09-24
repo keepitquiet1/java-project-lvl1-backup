@@ -10,7 +10,9 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
-
+run {
+    standardInput = System.in
+}
 test {
     useJUnitPlatform()
 }
