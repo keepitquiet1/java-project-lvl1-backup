@@ -1,14 +1,14 @@
 package hexlet.code.games;
-
-import hexlet.code.Cli;
-import hexlet.code.Engine;
-
 import java.util.Random;
 import java.util.Scanner;
 
 public class Calc {
     public static boolean runGame() {
-        Cli.greet();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
         System.out.println("What is the result of the expression?");
         final int hundred = 100;
         final int lengthArr = 3;
@@ -27,7 +27,6 @@ public class Calc {
         System.out.println("Your answer: ");
         Scanner sf = new Scanner(System.in);
         int answer = sf.nextInt();
-        Engine.engine();
         if (plusMinus[n].equals("+")) {
             if (f1 + f2 == (int) answer) {
                 System.out.println("Correct!");

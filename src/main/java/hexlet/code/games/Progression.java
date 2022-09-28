@@ -1,15 +1,15 @@
 package hexlet.code.games;
-
-import hexlet.code.App;
-import hexlet.code.Cli;
-import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 import java.util.Scanner;
 
 public class Progression {
     public static boolean runGame() {
-        Cli.greet();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
         System.out.println("What number is missing in the progression?");
         final int lowerBound = 5;
         final int upperBound = 10;
@@ -21,7 +21,7 @@ public class Progression {
         int firstNumber = Utils.getRandomNumber(0, hundred);
         System.out.println("Question: ");
         int[] arr = new int[lengthArray];
-        Engine.engine();
+
         for (int i = 0; i < lengthArray; i++) {
             arr[i] = firstNumber + (step * i);
             if (i == secretIndex) {

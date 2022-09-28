@@ -1,10 +1,18 @@
 package hexlet.code;
-import hexlet.code.games.*;
 
-import java.util.Random;
+import hexlet.code.games.Even;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Calc;
 import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String userName = sc.next();
+        System.out.println("Hello, " + userName + "!");
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
@@ -14,7 +22,6 @@ public class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
-
         Scanner scanner = new Scanner(System.in);
         String selectedGame = scanner.next();
         System.out.println();
@@ -23,7 +30,7 @@ public class App {
         final int gameNumber4 = 4;
         final int gameNumber5 = 5;
         final int gameNumber6 = 6;
-        switch (selectedGame){
+        switch (selectedGame) {
             case "1":
                 Cli.greet();
                 break;
@@ -48,8 +55,7 @@ public class App {
             default:
                 System.out.println("Invalid number entered. Restart the game.");
                 break;
-            }
-
-            scanner.close();
         }
+        scanner.close();
+    }
 }
