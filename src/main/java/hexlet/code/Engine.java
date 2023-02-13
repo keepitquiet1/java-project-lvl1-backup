@@ -58,7 +58,7 @@ public class Engine {
 
         score++;
         if (score == 3){
-            System.out.printf("Congrats, %s! You won!%n", Utils.getName());
+            System.out.printf("Congrats, %s! You won!!!%n", Utils.getName());
             return;
         }
         Calc.runGame();
