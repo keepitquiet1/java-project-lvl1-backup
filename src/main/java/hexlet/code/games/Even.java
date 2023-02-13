@@ -1,31 +1,32 @@
 package hexlet.code.games;
+
+import hexlet.Utils;
+import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 import java.util.Scanner;
 
 public class Even {
-    public static boolean runGame() {
+
+    private static String userName;
+
+    public static void runGame() {
+        Scanner scanner = new Scanner(System.in);
+        if (userName == null) {
+            userName = Utils.getName(scanner);
+        }
         System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
-        final int hundred = 100;
-        double a = Math.random() * hundred;
-        int rand = (int) a;
+        int rand = (int) (Math.random() * 100);
         System.out.println("Question: " + rand);
         System.out.println("Your answer: ");
-        Scanner sv = new Scanner(System.in);
-        String yN = sv.nextLine();
-        Engine.even();
-        if ((rand % 2 == 0) & (yN.equals("yes"))) {
-            return true;
-        } else if ((rand % 2 != 0) & (yN.equals("no"))) {
-            return true;
-        } else if ((rand % 2 != 0) & (yN.equals("yes"))) {
-            System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
-            return false;
-        } else if ((rand % 2 == 0) & (yN.equals("no"))) {
-            System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.");
-            return false;
-        } else {
-            return false;
-        }
+        String input = scanner.nextLine();
+        if (input != null)
+            Engine.even(rand, input);
+        scanner.close();
     }
+
+    public static String getUserName() {
+        return userName;
+    }
+
 }
