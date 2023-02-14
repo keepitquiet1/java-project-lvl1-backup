@@ -8,7 +8,6 @@ import hexlet.code.games.Progression;
 import hexlet.code.games.Calc;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
