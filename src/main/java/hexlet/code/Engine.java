@@ -8,7 +8,9 @@ import hexlet.code.games.Progression;
 import hexlet.code.games.Calc;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Engine {
     private static int score = 0;
@@ -22,7 +24,7 @@ public class Engine {
             System.out.println("Correct!");
             score++;
             if (score == 3) {
-                System.out.println("Congrats! You won!");
+                Utils.congrats();
                 return;
             }
             Even.runGame();
@@ -33,7 +35,6 @@ public class Engine {
     }
 
     public static void calc(int a, int b, char sign, int input) {
-        boolean isCorrect = false;
         switch (sign) {
             case '+':
                 if (a + b != input) {
@@ -57,55 +58,59 @@ public class Engine {
         System.out.println("Correct!");
 
         score++;
-        if (score == 3){
-            System.out.printf("Congrats, %s! You won!!!%n", Utils.getName());
+        if (score == 3) {
+            Utils.congrats();
             return;
         }
         Calc.runGame();
     }
 
-    public static boolean gcd() {
-        for (int i = 0; i <= 2; i++) {
-            if (Gcd.runGame()) {
-                System.out.println("Correct!");
-                if (i == 2) {
-                    System.out.println("Congratulations, " + "!");
-                }
-            } else {
-                System.out.println("Let's try again " + "!");
-                break;
-            }
+    public static void gcd(Scanner scanner, int a, int b) {
+        int answer = scanner.nextInt();
+        int gcd = Utils.gcdByEuclidAlgorithm(a, b);
+        if (answer != gcd) {
+            System.out.println(answer + " is wrong answer ;(. Correct answer was " + gcd);
+            return;
         }
-        return true;
+        System.out.println("Correct!");
+        score++;
+        if (score == 3) {
+            Utils.congrats();
+            return;
+        }
+        Gcd.runGame();
     }
 
-    public static boolean progression() {
-        for (int i = 0; i <= 2; i++) {
-            if (Progression.runGame()) {
-                System.out.println("Correct!");
-                if (i == 2) {
-                    System.out.println("Congratulations, " + "!");
-                }
-            } else {
-                System.out.println("Let's try again " + "!");
-                break;
-            }
+    public static void progression(int answer, int arr[], int secretIndex) {
+        if (arr[secretIndex] != answer) {
+            System.out.println(answer + " is wrong answer ;(. Correct answer was " + arr[secretIndex] + ".");
+
         }
-        return true;
+        System.out.println("Correct!");
+        score++;
+        if (score == 3) {
+            Utils.congrats();
+            return;
+        }
+        Progression.runGame();
+
     }
 
-    public static boolean prime() {
-        for (int i = 0; i <= 2; i++) {
-            if (Prime.runGame()) {
-                System.out.println("Correct!");
-                if (i == 2) {
-                    System.out.println("Congratulations, " + "!");
-                }
-            } else {
-                System.out.println("Let's try again " + "!");
-                break;
-            }
+    public static void prime(int number, String input) {
+        Map<String, Boolean> answers = new HashMap<>();
+        answers.put("yes", true);
+        answers.put("no", false);
+        if (!Utils.isPrime(number) == answers.get(input)) {
+            Utils.isNotCorrect(input);
+            return;
         }
-        return true;
+        System.out.println("Correct!");
+        score++;
+        if (score == 3) {
+            Utils.congrats();
+            return;
+        }
+        Prime.runGame();
+
     }
 }
